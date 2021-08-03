@@ -9,10 +9,10 @@ jobs:
     cron5:
         runs-on: ubuntu-latest
         steps:
-            - run: echo cron5 ${{ github.event }}!
+            - run: echo cron5
             
   cron6:      
       runs-on: ubuntu-latest
       steps:          
-          - run: echo cron5 ${{ github.event_name }}!
-          - run: echo cron5 ${{ github.event_path }}!
+          - run: echo cron5 
+          - run: echo cron5 
