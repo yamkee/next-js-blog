@@ -1,0 +1,20 @@
+name: cron
+
+on:
+    schedule:
+        - cron: '5 * * * *'
+        - cron: '6 * * * *'
+
+jobs:
+    cron5:
+        name: cron5
+        runs-on: ubuntu-latest
+        steps:
+            - name: log5
+              run: echo "cron5 ${{ github.event}}"
+  cron6:
+      name: cron6
+      runs-on: ubuntu-latest
+      steps:
+          - name: log6
+            run: echo cron6
