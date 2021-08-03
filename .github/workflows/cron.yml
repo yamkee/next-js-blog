@@ -7,14 +7,12 @@ on:
 
 jobs:
     cron5:
-        name: cron5
         runs-on: ubuntu-latest
         steps:
-            - name: log5
             - run: echo "cron5 ${{ github.event }}!"
-  cron6:
-      name: cron6
+            
+  cron6:      
       runs-on: ubuntu-latest
-      steps:
-          - name: log6
-          - run: echo cron6
+      steps:          
+          - run: echo "cron5 ${{ github.event_name }}!"
+          - run: echo "cron5 ${{ github.event_path }}!"
