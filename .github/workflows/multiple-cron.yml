@@ -34,13 +34,13 @@ jobs:
         run: echo "$GITHUB_CONTEXT"
 
       - name: cron1
-        if: ${{ github.event.schedule === "1/5 * * * *" }}
+        if: ${{ github.event.schedule == "1/5 * * * *" }}
         run: echo cron1
 
       - name: cron2
-        if: ${{ github.event.schedule === "2/5 * * * *" }}
+        if: ${{ github.event.schedule == "2/5 * * * *" }}
         run: echo cron2
 
       - name: cron3
-        if: ${{ github.event.schedule === "3/5 * * * *" }}
+        if: ${{ github.event.schedule == "3/5 * * * *" }}
         run: echo cron3
