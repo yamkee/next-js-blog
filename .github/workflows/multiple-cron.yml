@@ -6,9 +6,9 @@ name: multiple-cron
 on:
   schedule:
     # * is a special character in YAML so you have to quote this string
-    - cron:  '1/5 * * * *'
-    - cron:  '2/5 * * * *'
-    - cron:  '3/5 * * * *'
+    - cron: '1/5 * * * *'
+    - cron: '2/5 * * * *'
+    - cron: '3/5 * * * *'
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -27,8 +27,20 @@ jobs:
         env:
           GITHUB_CONTEXT: ${{ toJSON(github) }}
         run: echo "$GITHUB_CONTEXT"
-        
+
       - name: Dump GitHub event
         env:
           GITHUB_CONTEXT: ${{ toJSON(github.event) }}
         run: echo "$GITHUB_CONTEXT"
+
+      - name: cron1
+        if: ${{ github.event.schedule === "1/5 * * * *" }}
+        run: echo cron1
+
+      - name: cron2
+        if: ${{ github.event.schedule === "2/5 * * * *" }}
+        run: echo cron2
+
+      - name: cron3
+        if: ${{ github.event.schedule === "3/5 * * * *" }}
+        run: echo cron3
